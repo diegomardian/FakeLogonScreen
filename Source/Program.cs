@@ -100,7 +100,6 @@ namespace FakeLogonScreen
                 Console.WriteLine("file [file path]");
                 Console.WriteLine("console");
             }
-            // url "http://68.3.172.102:12056/fake_login_screen_checkin"
             Utils.showData(method, "Starting fake login screen");
 
             Application.EnableVisualStyles();
