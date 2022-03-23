@@ -22,10 +22,6 @@ namespace FakeLogonScreen
             {
                 writeToFile(method, text);
             }
-            else if (method["method"] == "console")
-            {
-                printToConsole(method, text);
-            }
             else if (method["method"] == "email")
             {
                 
