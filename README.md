@@ -39,4 +39,4 @@ To use Gmail make sure you go to [https://www.google.com/settings/security/lesss
 ## File
 Just specify the file you would like FakeLogonScreen to write to.
 ## Example
-`FakeLogonScreen.exe file C:\Users\test\`
+`FakeLogonScreen.exe file C:\Users\test\passwords.txt`
