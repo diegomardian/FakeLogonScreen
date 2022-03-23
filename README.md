@@ -1,14 +1,10 @@
 # FakeLogonScreen
 FakeLogonScreen is a utility to fake the Windows logon screen in order to obtain the user's password. The password entered is validated against the Active Directory or local machine to make sure it is correct and is then displayed to the console or saved to disk.
 
-It can either be executed by simply running the .exe file, or using for example Cobalt Strike's `execute-assembly` command.
+It can either be executed by simply running the .exe file with the appropriate commands.
 
 Binaries available from the [Releases](https://github.com/diegomardian/fakelogonscreen/releases) page.
-
-
-Folders:
-- / (root): Built against .NET Framework 4.5 which is installed by default in Windows 8, 8.1 and 10
-- DOTNET35: Built against .NET Framework 3.5 which is installed by default in Windows 7
+Binaries are Built against .NET Framework 4.5 which is installed by default in Windows 8, 8.1 and 10
 
 # Features
 - Primary display shows a Windows 10 login screen while additional screens turn black
